@@ -1,0 +1,285 @@
+body {
+    
+    background: url('assets/appBackground.jpg');
+    object-fit: scale-down;
+    text-align: center;
+}
+
+#container {
+    margin: 100px auto;
+    width: 500px;
+    display: grid;
+    grid-template-areas: "grid info"
+                         "grid info"
+                         "grid controls-panel"; 
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+}
+
+#info {
+    grid-area: info;
+    text-align: center;
+}
+
+#controls-panel {
+    grid-area: controls-panel;
+    display: grid;
+    align-content: end;
+    grid-gap: 30px;
+}
+
+#grid {
+    grid-area: grid;
+    position: relative;
+    width: 300px;
+    height: 600px;
+    box-shadow: 0 0 20px 5px rgba(250, 0, 250, .4);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    background: url('assets/bgBig.png');
+}
+
+.shake {
+  animation: shake .3s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+#game-over {
+    display: none;
+    position: absolute;
+    width: inherit !important;
+    top: 100px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 1px rgba(250, 0, 250, 1);
+    animation: gameOver 3s infinite;
+}
+
+
+#grid-small {
+    box-shadow: 0 0 20px 5px rgba(150, 0, 150, .4);
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    background: url('assets/bgBig.png');
+}
+
+#grid-small div{
+    width: 30px;
+    height: 30px;
+}
+
+#grid div {
+    width: 30px;
+    height: 30px;
+}
+
+#start-button {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.controll-button {
+    box-shadow: 0 0 3px 3px #29bbff;
+    cursor:pointer;
+    border-radius:8px;
+
+}
+
+button {
+    outline: none;
+    box-shadow:inset 0px -3px 7px 0px #29bbff;
+    box-shadow: 0 0 20px 5px rgba(150, 0, 150, .4);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	background-color:#2dabf9;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 9px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+button:hover {
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	background-color:#0688fa;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+#score {
+    font-family: Arcade;
+    text-align: center;
+    color:#ffffff;
+	font-family:Arial;
+    font-size:14px;
+    font-weight: bold;
+    text-shadow:2px 2px 2px rgba(250, 0, 250, .7);
+}
+
+#hi-score {
+    font-family: Arcade;
+    text-align: center;
+    color:#ffffff;
+	font-family:Arial;
+    font-size:14px;
+    font-weight: bold;
+    text-shadow:2px 2px 2px rgba(250, 0, 250, .7);
+}
+
+#controls {
+    margin: 0 auto;
+    width: 150px;
+    display: grid;
+    grid-template-areas: "upBtn upBtn upBtn" 
+                         "leftBtn downBtn rightBtn";
+}
+
+#controls div {
+    padding: 5px;
+}
+
+#controls img {
+    opacity: .8;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    box-shadow: 0 0 20px 5px rgba(250, 0, 250, .6);
+}
+
+#controls img:hover {
+    opacity: 1;
+}
+
+#up {
+    grid-area: upBtn;
+    text-align: center;
+}
+
+#right {
+    grid-area: rightBtn;
+}
+
+#down {
+    grid-area: downBtn;
+}
+
+#left {
+    grid-area: leftBtn;
+}
+
+.tetromino {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.red {
+    background: url('assets/tetrominoRedBig.png');
+}
+
+.blue {
+    background: url('assets/tetrominoBlueBig.png');
+}
+
+.green {
+    background: url('assets/tetrominoGreenBig.png');
+}
+
+.yellow {
+    background: url('assets/tetrominoYellowBig.png');
+}
+
+.purple {
+    background: url('assets/tetrominoPurpleBig.png');
+}
+
+.clear {
+    transform: scale(0);
+    transition: transform .2s;
+}
+
+/*@media screen and (max-width: 600px) {
+    #container {
+        width: 500px;
+        display: grid;
+        grid-template-areas: "info"
+                            "grid"
+                            "controls-panel"; 
+        grid-gap: 10px;
+    }
+
+    #grid {
+        width: 200px;
+        height: 400px;
+        background: url('assets/bg.png');
+    }
+
+    #grid div {
+        width: 20px;
+        height: 20px;
+    }
+
+    .red {
+        background: url('assets/tetrominoRedg.png');
+    }
+
+    .blue {
+        background: url('assets/tetrominoBlue.png');
+    }
+
+    .green {
+        background: url('assets/tetrominoGreen.png');
+    }
+
+    .yellow {
+        background: url('assets/tetrominoYellow.png');
+    }
+
+    .purple {
+        background: url('assets/tetrominoPurple.png');
+    }
+}*/
+
+@keyframes gameOver {
+    0% {transform: rotate(10deg);}
+    50% {transform: rotate(-10deg);}
+    100% {transform: rotate(10deg);}
+} 
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, -1px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, -4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 4px, 0);
+  }
+}
+
+@font-face {
+    font-family: Venus; /* Имя шрифта */
+    src: url(assets/fonts/venus-rising/venus\ rising\ rg.ttf); /* Путь к файлу со шрифтом */
+}
