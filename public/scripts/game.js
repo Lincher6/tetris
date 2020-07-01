@@ -18,12 +18,12 @@ export const game = {
     speed: 1000,
     moveTimer: null,
     speedUpTimer: null,
-    musicTheme: new Audio('../assets/sound/track1.mp3'),
-    landingSound: new Audio('../assets/sound/landing.wav'),
-    moveSound: new Audio('../assets/sound/move.wav'),
-    rowClearSound: new Audio('../assets/sound/row.wav'),
-    pauseSound: new Audio('../assets/sound/pause.wav'),
-    gameOverSound: new Audio('../assets/sound/gameOver.wav'),
+    musicTheme: new Audio('./assets/sound/track1.mp3'),
+    landingSound: new Audio('./assets/sound/landing.wav'),
+    moveSound: new Audio('./assets/sound/move.wav'),
+    rowClearSound: new Audio('./assets/sound/row.wav'),
+    pauseSound: new Audio('./assets/sound/pause.wav'),
+    gameOverSound: new Audio('./assets/sound/gameOver.wav'),
 
     currentPosition: null,
     currentRotation: null,
@@ -39,10 +39,16 @@ export const game = {
 }
 
 game.musicTheme.volume = .9
+game.musicTheme.preload
 game.musicTheme.loop = true
 game.landingSound.volume = .7
+game.landingSound.preload
 game.moveSound.volume = .8
+game.moveSound.preload
 game.rowClearSound.volume = .7
+game.rowClearSound.preload
 game.pauseSound.volume = .7
+game.pauseSound.preload
 game.gameOverSound.volume = .7
+game.gameOverSound.preload
 

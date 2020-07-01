@@ -11,8 +11,8 @@ body {
     display: grid;
     grid-template-areas: "grid info"
                          "grid info"
-                         "grid controls-panel"; 
-    grid-gap: 30px;
+                         "grid controls"; 
+    grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -21,14 +21,8 @@ body {
     text-align: center;
 }
 
-#controls-panel {
-    grid-area: controls-panel;
-    display: grid;
-    align-content: end;
-    grid-gap: 30px;
-}
-
 #grid {
+    margin: 0 auto;
     grid-area: grid;
     position: relative;
     width: 300px;
@@ -41,26 +35,10 @@ body {
     background: url('assets/bgBig.png');
 }
 
-.shake {
-  animation: shake .3s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+#grid div {
+    width: 30px;
+    height: 30px;
 }
-
-#game-over {
-    display: none;
-    position: absolute;
-    width: inherit !important;
-    top: 100px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 1px rgba(250, 0, 250, 1);
-    animation: gameOver 3s infinite;
-}
-
 
 #grid-small {
     box-shadow: 0 0 20px 5px rgba(150, 0, 150, .4);
@@ -78,9 +56,21 @@ body {
     height: 30px;
 }
 
-#grid div {
-    width: 30px;
-    height: 30px;
+#game-over {
+    display: none;
+    position: absolute;
+    width: inherit !important;
+    top: 100px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 1px rgba(250, 0, 250, 1);
+    animation: gameOver 3s infinite;
+}
+
+#start {
+    margin: 0 auto;
 }
 
 #start-button {
@@ -88,11 +78,102 @@ body {
     margin: 0 auto;
 }
 
-.controll-button {
-    box-shadow: 0 0 3px 3px #29bbff;
-    cursor:pointer;
-    border-radius:8px;
+#score-display {
+    font-family: Arcade;
+    text-align: center;
+    color:#ffffff;
+	font-family:Arial;
+    font-size:14px;
+    font-weight: bold;
+    text-shadow:2px 2px 2px rgba(250, 0, 250, .7);
+}
 
+#score {
+    margin-bottom: 10px;
+}
+
+#hi-score {
+    margin-bottom: 10px;
+}
+
+#controls {
+    grid-area: controls;
+    align-content: end;
+    margin: 0 auto;
+    width: 180px;
+    height: 120px;
+    display: grid;
+    grid-template-areas: "upBtn upBtn upBtn" 
+                         "leftBtn downBtn rightBtn";
+}
+
+#controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    vertical-align: middle;
+    font-weight: bold;
+    border-radius: 5px;
+    padding:0px 0px;
+}
+
+#controls div {
+    padding: 5px;
+}
+
+#up {
+    grid-area: upBtn;
+    text-align: center;
+}
+
+#right {
+    grid-area: rightBtn;
+}
+
+#down {
+    grid-area: downBtn;
+}
+
+#left {
+    grid-area: leftBtn;
+}
+
+.tetromino {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.shake {
+  animation: shake .3s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.red {
+    background: url('assets/tetrominoRedBig.png');
+}
+
+.blue {
+    background: url('assets/tetrominoBlueBig.png');
+}
+
+.green {
+    background: url('assets/tetrominoGreenBig.png');
+}
+
+.yellow {
+    background: url('assets/tetrominoYellowBig.png');
+}
+
+.purple {
+    background: url('assets/tetrominoPurpleBig.png');
+}
+
+.clear {
+    transform: scale(0);
+    transition: transform .2s;
 }
 
 button {
@@ -121,106 +202,18 @@ button:active {
 	top:1px;
 }
 
-#score {
-    font-family: Arcade;
-    text-align: center;
-    color:#ffffff;
-	font-family:Arial;
-    font-size:14px;
-    font-weight: bold;
-    text-shadow:2px 2px 2px rgba(250, 0, 250, .7);
-}
-
-#hi-score {
-    font-family: Arcade;
-    text-align: center;
-    color:#ffffff;
-	font-family:Arial;
-    font-size:14px;
-    font-weight: bold;
-    text-shadow:2px 2px 2px rgba(250, 0, 250, .7);
-}
-
-#controls {
-    margin: 0 auto;
-    width: 150px;
-    display: grid;
-    grid-template-areas: "upBtn upBtn upBtn" 
-                         "leftBtn downBtn rightBtn";
-}
-
-#controls div {
-    padding: 5px;
-}
-
-#controls img {
-    opacity: .8;
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    box-shadow: 0 0 20px 5px rgba(250, 0, 250, .6);
-}
-
-#controls img:hover {
-    opacity: 1;
-}
-
-#up {
-    grid-area: upBtn;
-    text-align: center;
-}
-
-#right {
-    grid-area: rightBtn;
-}
-
-#down {
-    grid-area: downBtn;
-}
-
-#left {
-    grid-area: leftBtn;
-}
-
-.tetromino {
-    width: 20px;
-    height: 20px;
-    box-sizing: border-box;
-}
-
-.red {
-    background: url('assets/tetrominoRedBig.png');
-}
-
-.blue {
-    background: url('assets/tetrominoBlueBig.png');
-}
-
-.green {
-    background: url('assets/tetrominoGreenBig.png');
-}
-
-.yellow {
-    background: url('assets/tetrominoYellowBig.png');
-}
-
-.purple {
-    background: url('assets/tetrominoPurpleBig.png');
-}
-
-.clear {
-    transform: scale(0);
-    transition: transform .2s;
-}
-
-/*@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     #container {
-        width: 500px;
-        display: grid;
-        grid-template-areas: "info"
-                            "grid"
-                            "controls-panel"; 
-        grid-gap: 10px;
+        margin: 20px auto;
+        width: 300px;
+        grid-gap: 5px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "grid info"      
+                             "controls controls";
+    }
+
+    #info {
+        
     }
 
     #grid {
@@ -234,8 +227,32 @@ button:active {
         height: 20px;
     }
 
+    #grid-small {
+        margin: 0 auto;
+        margin-bottom: 10px;
+        width: 80px;
+        height: 80px;
+        background: url('assets/bg.png');
+    }
+
+    #grid-small div {
+        width: 20px;
+        height: 20px;
+    }
+
+    #score-display div{
+        font-size: 10px;
+    }
+
+    #start-button {
+        font-size: 10px;
+        padding: 5px 5px;
+        width: 80px;
+        height: 36px;
+    }
+
     .red {
-        background: url('assets/tetrominoRedg.png');
+        background: url('assets/tetrominoRed.png');
     }
 
     .blue {
@@ -253,7 +270,7 @@ button:active {
     .purple {
         background: url('assets/tetrominoPurple.png');
     }
-}*/
+}
 
 @keyframes gameOver {
     0% {transform: rotate(10deg);}

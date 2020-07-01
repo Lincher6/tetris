@@ -20,7 +20,7 @@ export function start_pause() {
         } else {
             startButton.textContent = 'PAUSE'
             game.moveTimer = setInterval(moveDown, game.speed)
-            game.speedUpTimer = setInterval(speedFlow, 10000)
+            game.speedUpTimer = setInterval(speedFlow, 30000)
             musicTheme.play();
             game.isPaused = false
             pauseSound.pause()
@@ -85,10 +85,10 @@ function newGame(squares) {
     startButton.textContent = 'PAUSE'
     gameOverText.style.display = 'none'
     game.scoreCount = 0
-    score.textContent = 'Score - ' + game.scoreCount
+    score.textContent = game.scoreCount
     game.speed = 1000
     game.moveTimer = setInterval(moveDown, game.speed)
-    game.speedUpTimer = setInterval(speedFlow, 10000)
+    game.speedUpTimer = setInterval(speedFlow, 30000)
     musicTheme.currentTime = 0
     musicTheme.play()
     generateTetromino()
@@ -107,7 +107,7 @@ function gameOver() {
 
     if (game.hiScoreCount < game.scoreCount) {
         localStorage.setItem('tetrisHiScore', game.scoreCount)
-        game.hiScore.textContent = 'Hi-Score - ' + game.scoreCount
+        game.hiScore.textContent = game.scoreCount
     }
 }
 
@@ -141,7 +141,7 @@ function rowChecker() {
             case 4: game.scoreCount += 100; break
         }
 
-        score.textContent = `Score - ${game.scoreCount}`
+        score.textContent = game.scoreCount
 
         game.grid.innerHTML = null
         game.squares.forEach(square => game.grid.appendChild(square))
