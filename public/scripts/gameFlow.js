@@ -8,7 +8,7 @@ const { startButton, score, gameOverText, musicTheme, width, landingSound, rowCl
 export function start_pause() {
     if (game.isStarted) {
         if (!game.isPaused) {
-            startButton.textContent = 'START'
+            startButton.innerHTML = `<i class="fas fa-play"></i>`
             clearInterval(game.moveTimer)
             clearInterval(game.speedUpTimer)
             musicTheme.pause();
@@ -18,7 +18,7 @@ export function start_pause() {
 
 
         } else {
-            startButton.textContent = 'PAUSE'
+            startButton.innerHTML = `<i class="fas fa-pause"></i>`
             game.moveTimer = setInterval(moveDown, game.speed)
             game.speedUpTimer = setInterval(speedFlow, 30000)
             musicTheme.play();
@@ -82,7 +82,7 @@ function newGame(squares) {
     }
 
     game.isStarted = true
-    startButton.textContent = 'PAUSE'
+    startButton.innerHTML = `<i class="fas fa-pause"></i>`
     gameOverText.style.display = 'none'
     game.scoreCount = 0
     score.textContent = game.scoreCount
@@ -99,7 +99,7 @@ function newGame(squares) {
 function gameOver() {
     gameOverSound.play()
     gameOverText.style.display = 'block'
-    startButton.textContent = 'NEW GAME'
+    startButton.innerHTML = `<i class="fas fa-play"></i>`
     game.isStarted = false
     clearInterval(game.moveTimer)
     clearInterval(game.speedUpTimer)
