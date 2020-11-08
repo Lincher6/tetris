@@ -1,9 +1,9 @@
-import { game } from './game.js'
-import { isFreezed } from './gameFlow.js'
-import { draw, undraw } from './canvas.js'
-import { tetrominos } from './tetrominos.js'
+import {game} from './game.js'
+import {isFreezed} from './gameFlow.js'
+import {draw, undraw} from './canvas.js'
+import {tetrominos} from './tetrominos.js'
 
-const { width } = game
+const {width} = game
 
 function isAtRight() {
     return game.currentTetromino.some(index => (game.currentPosition + index + 1) % width === 0)
@@ -19,8 +19,7 @@ function checkRotation(position = game.currentPosition) {
             game.currentPosition++
             checkRotation(position)
         }
-    }
-    else if ((position) % width > 5) {
+    } else if ((position) % width > 5) {
         if (isAtLeft()) {
             game.currentPosition--
             checkRotation(position)
@@ -87,23 +86,48 @@ export function rotate() {
 
 function control(e) {
     switch (e.keyCode) {
-        case 37: moveLeft()
+        case 37:
+            moveLeft()
             break
-        case 65: moveLeft()
+        case 65:
+            moveLeft()
             break
-        case 38: rotate()
+        case 38:
+            rotate()
             break
-        case 87: rotate()
+        case 87:
+            rotate()
             break
-        case 39: moveRight()
+        case 39:
+            moveRight()
             break
-        case 68: moveRight()
+        case 68:
+            moveRight()
             break
-        case 40: moveDown()
+        case 40:
+            moveDown()
             break
-        case 83: moveDown()
+        case 83:
+            moveDown()
             break
     }
+}
+
+let interval
+let timer
+
+export function controlOn(fn) {
+    clearInterval(interval)
+    timer = setTimeout(() => {
+        clearInterval(interval)
+        interval = setInterval(fn, 100)
+    }, 400)
+    fn()
+}
+
+export function controlOff() {
+    clearInterval(interval)
+    clearTimeout(timer)
 }
 
 document.addEventListener('keydown', control)

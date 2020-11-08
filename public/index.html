@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./assets/favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="icon" sizes="192x192" href="favicon-big.png">
+    <link rel="icon" href="favicon.png" />
+    <link rel="manifest" href="manifest.json" />
     <script src="https://kit.fontawesome.com/427c0539fa.js" crossorigin="anonymous"></script>
     <script src="scripts/app.js" type="module"></script>
     <title>Tetris</title>
@@ -228,7 +231,7 @@
             <div class="taken"></div>
             <div class="taken"></div>
 
-            <div id='game-over' style="font-family: Venus;">GAME OVER</div>
+            <div id='game-over' style="font-family: Venus, serif;">GAME OVER</div>
         </div>
 
         <div id="info">
@@ -253,22 +256,22 @@
             </div>
 
             <div id='score-display'>
-                <div style="font-family: Venus;">
+                <div style="font-family: Venus, serif;">
                     Score
                 </div>
-                <div id="score" style="font-family: Venus;">
+                <div id="score" style="font-family: Venus, serif;">
                     0
                 </div>
-                <div style="font-family: Venus;">
+                <div style="font-family: Venus, serif;">
                     Hi-Score
                 </div>
-                <div id="hi-score" style="font-family: Venus;">
+                <div id="hi-score" style="font-family: Venus, serif;">
                     0
                 </div>
             </div>
 
             <div id='start'>
-                <button id='start-button' style="font-family: Venus;">
+                <button id='start-button' style="font-family: Venus, serif;">
                     <i class="fas fa-play"></i>
                 </button>
             </div>
